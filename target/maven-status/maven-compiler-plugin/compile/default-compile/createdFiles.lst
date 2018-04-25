@@ -1,0 +1,12 @@
+com\bishe\controller\Addfood.class
+com\bishe\controller\UserController.class
+com\bishe\dao\UserDao.class
+com\bishe\sevice\UploadFile.class
+com\bishe\dao\FoodDao.class
+com\bishe\sevice\UserServiceImpl.class
+com\bishe\model\Food.class
+com\bishe\sevice\UserService.class
+com\bishe\model\User.class
+com\bishe\sevice\FoodService.class
+com\bishe\sevice\FoodServiceImpl.class
+com\bishe\sevice\UploadFileImpl.class

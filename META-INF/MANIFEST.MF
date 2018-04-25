@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ReservationWebsite
+Bundle-SymbolicName: ReservationWebsite
+Bundle-Version: 1.0.0.qualifier
+Export-Package: com.bishe.controller,
+ com.bishe.dao,
+ com.bishe.mapper,
+ com.bishe.model,
+ com.bishe.sevice

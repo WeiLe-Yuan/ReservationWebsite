@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="jq/bootstrap-3.3.7/css/bootstrap.min.css">
+<link href="js/chart1/css/progresscircle.css" rel="stylesheet">
+<script type="text/javascript" src="jq/jquery-3.3.1.min.js"></script>
+<script src="js/chart1/js/progresscircle.js"></script>
+
+<style>
+.chart1 {
+	margin: 100px
+}
+</style>
+
+</head>
+<body>
+	<div class="container">
+		<div class="chart1">
+			<div class="col-md-5" align="center">
+				<h3>比上一个月营业额增长</h3>
+				<div class="circlechart" data-percentage="-80">-80%</div>
+			</div>
+			<div class="col-md-5 pull-right" align="center">
+				<h3>比上一个月订单数增长</h3>
+				<div class="circlechart" data-percentage="50">50%</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(function() {
+
+			$('.circlechart').circlechart();
+
+		});
+	</script>
+</body>
+</html>

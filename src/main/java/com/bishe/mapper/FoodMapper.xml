@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bishe.dao.FoodDao">
+	<!--  
+	<resultMap type="com.bishe.model.User" id="FoodList">
+		<id column="user_id" property="user_id" />
+		<result column="user_name" property="user_name" />
+		<result column="user_password" property="user_password" />
+		<result column="user_address" property="user_address" />
+		<result column="user_email" property="user_email" />
+		<collection property="foodlist" ofType="com.bishe.model.Food">
+			<id column="food_id" property="food_id" />
+			<id column="user_id" property="user_id" />
+			<result column="food_name" property="food_name" />
+			<result column="food_price" property="food_price" />
+			<result column="food_img" property="food_img" />
+		</collection>
+	</resultMap>
+	-->
+
+	<insert id="insertFood" parameterType="com.bishe.model.Food">
+		INSERT INTO sj_menu
+		(food_id,user_id,food_name,food_price,food_img,food_type) VALUES
+		(#{food_id},#{user_id},#{food_name},#{food_price},#{food_img},#{food_type})
+	</insert>
+
+	<insert id="insertFoodType">
+		INSERT INTO sj_food_type (type,user_id) VALUES(#{food_type},#{user_id})
+	</insert>
+
+	<delete id="deleteFood" parameterType="String">
+		DELETE FROM sj_menu WHERE
+		food_name = #{food_name}
+	</delete>
+
+	<select id="selectFoodByUserId" parameterType="int"
+		resultType="com.bishe.model.Food">
+		SELECT food_id,food_name,food_price,food_img FROM sj_user
+		inner join sj_menu on sj_user.user_id = sj_menu.user_id WHERE
+		sj_user.user_id = #{user_id}
+	</select>
+
+	<select id="selectFoodByFoodType" resultType="com.bishe.model.Food">
+		SELECT food_id,food_name,food_price,food_img,food_type FROM sj_menu WHERE
+		user_id=#{user_id} AND food_type=#{food_type}
+	</select>
+
+	<select id="selectFoodType" resultType="String">
+		SELECT type FROM sj_food_type WHERE type = #{food_type} AND user_id =
+		#{user_id}
+	</select>
+
+	<!-- 通过商家id获取食品类型 -->
+	<select id="selectFoodTypeByUserId" parameterType="int"
+		resultType="String">
+		SELECT type FROM sj_food_type WHERE user_id = #{user_id}
+	</select>
+
+	<update id="updateFood">
+		UPDATE sj_menu SET
+		food_id=#{food.food_id},food_name=#{food.food_name},food_price=#{food.food_price},food_img=#{food.food_img}
+		WHERE food_id=#{food_id} AND user_id=#{user_id}
+	</update>
+</mapper>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="jq/jquery-3.3.1.min.js"></script>
+<style>
+*{
+margin:0;
+padding:0;
+}
+
+#left {
+	background: red;
+	width: 220px;
+	height: 1000px;
+	float:left;
+
+}
+
+#right {
+	background: blue;
+	width: auto;
+	height: 1000px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+		<div id="left"></div>
+		<div id="right" state="0"><div align="left">uyutuyuyuyuyyty</div></div>
+	</div>
+	
+	
+	<script type="text/javascript">
+	    $("#right").click(function move() {
+	    	if ($(this).attr("state")=="0") {
+	    		$("#left").css("width","100px");
+	    		$(this).attr("state","1");
+			}else {
+				$("#left").css("width","220px");
+				$(this).attr("state","0");
+			}
+		});
+	</script>
+
+</body>
+</html>
